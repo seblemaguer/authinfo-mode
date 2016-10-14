@@ -1,10 +1,10 @@
-;;; authinfo-mode.el --- 
+;;; authinfo-mode.el ---
 
 ;; Copyright 2015 Sébastien Le Maguer
 ;;
 ;; Author: Sébastien Le Maguer
 ;; Version: $Id: authinfo-mode.el,v 0.0 2015/09/23 13:19:39 slemaguer Exp $
-;; Keywords: 
+;; Keywords:
 ;; X-URL: not distributed yet
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;; Put this file into your load-path and the following into your ~/.emacs:
 ;;   (require 'authinfo-mode)
@@ -39,6 +39,7 @@
 (setq auth-keywords
       '(("default\\|machine\\|login\\|password\\|account\\|macdef" . font-lock-keyword-face)))
 
+
 (define-derived-mode authinfo-mode fundamental-mode "authinfo"
   "Major mode to edit authinfo files"
   (setq-local font-lock-defaults '(auth-keywords))
@@ -48,9 +49,9 @@
   (setq-local comment-start "#")
   (setq-local comment-end "")
   (font-lock-add-keywords nil '(("^#.+" . font-lock-comment-face)))
+
+  ;; Disable String
+  (setq-local font-lock-string-face nil)
   )
-
-
-
 
 ;;; authinfo-mode.el ends here
