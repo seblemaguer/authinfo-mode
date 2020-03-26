@@ -1,6 +1,6 @@
 ;;; authinfo-mode.el ---
 
-;; Copyright 2015 Sébastien Le Maguer
+;; Copyright 2015, 2020 Sébastien Le Maguer
 ;;
 ;; Author: Sébastien Le Maguer
 ;; Version: $Id: authinfo-mode.el,v 0.0 2015/09/23 13:19:39 slemaguer Exp $
@@ -30,12 +30,6 @@
 
 ;;; Code:
 
-(provide 'authinfo-mode)
-(eval-when-compile
-  (require 'cl))
-
-
-
 (setq auth-keywords
       '(("default\\|machine\\|login\\|password\\|account\\|macdef" . font-lock-keyword-face)))
 
@@ -48,10 +42,10 @@
   ;; Comment part
   (setq-local comment-start "#")
   (setq-local comment-end "")
-  (font-lock-add-keywords nil '(("^#.+" . font-lock-comment-face)))
+  (font-lock-add-keywords nil '(("^#.*" . font-lock-comment-face)))
 
   ;; Disable String
-  (setq-local font-lock-string-face nil)
-  )
+  (setq-local font-lock-string-face nil))
 
+(provide 'authinfo-mode)
 ;;; authinfo-mode.el ends here
